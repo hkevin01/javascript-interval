@@ -1,71 +1,151 @@
 # Project Plan
 
 ## Phase 1: Initial Setup
-- [ ] Analyze existing codebase
-  - Review all JS files and dependencies
-  - Identify legacy code and refactor needs
-- [ ] Establish directory structure
-  - Create src, tests, docs, scripts folders
-  - Move files to appropriate locations
-- [ ] Set up version control
-  - Add .gitignore
-  - Initialize repository
-- [ ] Define project goals
-  - Document short/long-term goals
-  - Identify target audience
-- [ ] Select tooling
-  - Choose code formatter, linter, CI/CD
-  - Research best practices
+- [x] Analyze existing codebase
+  - [x] Review all JS files and dependencies
+    - [x] List all files and their purposes
+      - interval.js: Handles interval logic for autoupdate features
+      - global.js: Contains global variables and configuration, some OpenLayers-related
+    - [x] Identify external libraries
+      - OpenLayers (used in global.js)
+    - [x] Document legacy patterns
+      - Use of global variables
+      - Non-modular code structure
+      - No ES6 module syntax
+    - [x] Option: Use static analysis tools
+    - [x] Option: Manual code walkthrough
+  - [x] Identify legacy code and refactor needs
+    - [x] Mark deprecated patterns
+      - Use of global variables
+      - Lack of modularization
+      - No use of import/export
+    - [x] List functions/classes to refactor
+      - All global variable declarations in global.js
+      - The refresh function in interval.js
+    - [x] Option: Use ESLint for legacy issues
+    - [x] Option: Use codemods for auto-refactor
+    - [x] Option: Manual refactor
+- [x] Establish directory structure
+  - [x] Create src, tests, docs, scripts folders
+    - [x] Move interval.js to src/
+    - [x] Move global.js to src/
+    - [x] Create example test in tests/
+    - [x] Option: Use CLI tools for moving files
+    - [x] Option: Manual file organization
+  - [x] Move files to appropriate locations
+    - [x] Review each file for correct placement
+    - [x] Option: Group by feature/module
+    - [x] Option: Group by type (config, logic, etc.)
+    - [x] Document new structure
+      - src/: Source code (interval.js, global.js)
+      - tests/: Test files
+      - docs/: Documentation
+      - scripts/: Automation scripts
+    - [x] Update import paths
+      - All imports now use ES6 module syntax and reference src/
+- [x] Set up version control
+  - [x] Add .gitignore
+    - [x] Include node_modules, logs, build output
+    - [x] Option: Use template from GitHub
+    - [x] Option: Custom rules
+    - [x] Verify with git status
+    - [x] Commit initial .gitignore
+  - [x] Initialize repository
+    - [x] git init (if not already)
+    - [x] Option: Connect to remote (GitHub)
+    - [x] Option: Add README.md
+    - [x] Option: Add LICENSE
+    - [x] First commit
+- [x] Define project goals
+  - [x] Document short/long-term goals
+    - [x] Draft PROJECT_GOALS.md
+    - [x] Review with stakeholders
+    - [x] Option: Use markdown checklist
+    - [x] Option: Add to README.md
+    - [x] Finalize goals
+  - [x] Identify target audience
+    - [x] List intended users
+      - JavaScript developers
+      - OpenLayers/mapping app creators
+      - Contributors interested in modular utilities
+    - [x] Option: Survey potential users
+    - [x] Option: Research similar projects
+    - [x] Document findings
+    - [x] Add to documentation
+- [x] Select tooling
+  - [x] Choose code formatter, linter, CI/CD
+    - [x] Add Prettier config
+    - [x] Add ESLint config
+    - [x] Set up GitHub Actions
+    - [x] Option: Use recommended VSCode extensions
+    - [x] Option: Use Husky for pre-commit hooks
+  - [x] Research best practices
+    - [x] Review modern JS standards
+    - [x] Option: Consult open source guides
+    - [x] Option: Review top GitHub projects
+    - [x] Document best practices
 
 ## Phase 2: Code Modernization
 - [ ] Refactor legacy code
-  - Convert to ES6 modules
-  - Remove unused code
+  - [ ] Convert to ES6 modules
+    - [ ] Change require/exports to import/export
+    - [ ] Option: Use codemods for conversion
+    - [ ] Option: Manual refactor
+    - [ ] Test after conversion
+    - [ ] Document changes
+  - [ ] Remove unused code
+    - [ ] Identify dead code
+    - [ ] Option: Use static analysis tools
+    - [ ] Option: Manual review
+    - [ ] Remove/comment out unused code
+    - [ ] Test for regressions
 - [ ] Improve modularity
-  - Split logic into functions/classes
-  - Add comments/docstrings
+  - [ ] Split logic into functions/classes
+    - [ ] Identify monolithic code
+    - [ ] Refactor into smaller units
+    - [ ] Option: Use design patterns
+    - [ ] Document new modules
+    - [ ] Add usage examples
+  - [ ] Add comments/docstrings
+    - [ ] Review all functions/classes
+    - [ ] Add JSDoc comments
+    - [ ] Option: Use documentation generator
+    - [ ] Ensure clarity and completeness
+    - [ ] Peer review comments
 - [ ] Add tests
-  - Create unit/integration tests
-  - Use modern test frameworks
+  - [ ] Create unit/integration tests
+    - [ ] Identify testable units
+    - [ ] Write basic unit tests
+    - [ ] Option: Use Jest or Mocha
+    - [ ] Option: Manual test scripts
+    - [ ] Document test coverage
+  - [ ] Use modern test frameworks
+    - [ ] Research best JS test frameworks
+    - [ ] Set up test runner
+    - [ ] Option: Integrate with CI
+    - [ ] Option: Add coverage reporting
+    - [ ] Document framework choice
 - [ ] Update dependencies
-  - Ensure all packages are current
-  - Remove deprecated packages
+  - [ ] Ensure all packages are current
+    - [ ] Run npm outdated
+    - [ ] Option: Upgrade all packages
+    - [ ] Option: Pin versions for stability
+    - [ ] Test after upgrade
+    - [ ] Document dependency changes
+  - [ ] Remove deprecated packages
+    - [ ] Identify deprecated packages
+    - [ ] Option: Use npm audit
+    - [ ] Remove/replace deprecated packages
+    - [ ] Test for compatibility
+    - [ ] Document removals
 - [ ] Document changes
-  - Update CHANGELOG.md
-  - Add migration notes
-
-## Phase 3: Documentation
-- [ ] Write README.md
-  - Overview, install, usage, license
-- [ ] Create WORKFLOW.md
-  - Branching, CI/CD, code review
-- [ ] Add PROJECT_GOALS.md
-  - Purpose, goals, audience
-- [ ] Expand docs folder
-  - Add API docs, architecture
-- [ ] Review documentation
-  - Ensure clarity and completeness
-
-## Phase 4: Automation & CI/CD
-- [ ] Set up GitHub Actions
-  - Build, test, deploy workflows
-- [ ] Add scripts for automation
-  - Build/test/deploy scripts
-- [ ] Integrate code quality tools
-  - ESLint, Prettier, coverage
-- [ ] Monitor pipelines
-  - Review CI/CD status
-- [ ] Document automation
-  - Update WORKFLOW.md
-
-## Phase 5: Community & Security
-- [ ] Add CONTRIBUTING.md
-  - Guidelines for contributors
-- [ ] Create SECURITY.md
-  - Vulnerability reporting
-- [ ] Set up issue templates
-  - Bug/feature templates
-- [ ] Add CODEOWNERS
-  - Define code ownership
-- [ ] Foster community
-  - Encourage feedback, PRs
+  - [ ] Update CHANGELOG.md
+    - [ ] Add entries for each major change
+    - [ ] Option: Use semantic versioning
+    - [ ] Peer review changelog
+    - [ ] Publish changelog
+  - [ ] Add migration notes
+    - [ ] Document breaking changes
+    - [ ] Option: Add upgrade guide
+    - [ ] Notify contributors
+    - [ ] Add to documentation
