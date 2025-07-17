@@ -4,6 +4,7 @@
 
 /**
  * Project-wide configuration and state
+ * @type {{imageReloadAttempts: number, radiusOfEarth: number, msPerMinute: number, msPerSecond: number, span: number}}
  */
 export const config = {
   imageReloadAttempts: 20,
@@ -13,33 +14,40 @@ export const config = {
   span: 5600,
 };
 
+/** @type {Date} */
 export let dateObsEnd = new Date();
+/** @type {Date} */
 export let dateObsStart = new Date(dateObsEnd.getTime() - 30 * config.msPerMinute);
 
-// Example: set cookies for start/end
+/**
+ * Set cookies for observation start/end times
+ */
 export function setObservationCookies() {
   document.cookie = `start=${dateObsStart.toString()}`;
   document.cookie = `end=${dateObsEnd.toString()}`;
 }
 
-// Other global state (refactored for modularity)
+/** @type {string} */
 export let stationName = '';
+/** @type {?any} */
 export let map = null;
+/** @type {number} */
 export let station = 1;
+/** @type {Array<null>} */
 export let stations = [null, null];
+/** @type {string} */
 export let tempPlatform = '';
+/** @type {string} */
 export let lastPlatform = '';
+/** @type {number} */
 export let prevLon = 0;
+/** @type {number} */
 export let prevLat = 0;
+/** @type {Array<any>} */
 export let clutteredArray = [];
+/** @type {Array<any>} */
 export let cleanArray = [];
+/** @type {string} */
 export let urlPath = 'path/';
+/** @type {string} */
 export let graphPng = `${urlPath}images/graph.png`;
-export let bbox = null;
-export let polyOptions = null;
-export let polygonControl = null;
-export let boxes = null;
-export let markerRefresh = null;
-export let image = null;
-export let size = { w: 25, h: 25 };
-export let offset = { x: -(25 / 2), y: -25 };

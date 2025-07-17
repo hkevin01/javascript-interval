@@ -86,19 +86,22 @@
     - [x] Document best practices
 
 ## Phase 2: Code Modernization
-- [ ] Refactor legacy code
-  - [ ] Convert to ES6 modules
-    - [ ] Change require/exports to import/export
-    - [ ] Option: Use codemods for conversion
-    - [ ] Option: Manual refactor
-    - [ ] Test after conversion
-    - [ ] Document changes
-  - [ ] Remove unused code
-    - [ ] Identify dead code
-    - [ ] Option: Use static analysis tools
-    - [ ] Option: Manual review
-    - [ ] Remove/comment out unused code
-    - [ ] Test for regressions
+- [x] Refactor legacy code
+  - [x] Convert to ES6 modules
+    - [x] Change require/exports to import/export
+      - interval.js and global.js refactored to ES6 modules
+    - [x] Option: Use codemods for conversion
+    - [x] Option: Manual refactor
+    - [x] Test after conversion
+      - All ES6 modules tested and verified
+    - [x] Document changes
+      - CHANGELOG.md updated with refactor notes
+  - [x] Remove unused code
+    - [x] Identify dead code
+    - [x] Option: Use static analysis tools
+    - [x] Option: Manual review
+    - [x] Remove/comment out unused code
+    - [x] Test for regressions
 - [ ] Improve modularity
   - [ ] Split logic into functions/classes
     - [ ] Identify monolithic code
