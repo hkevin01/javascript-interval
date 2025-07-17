@@ -1,0 +1,13 @@
+{
+  "behavior": {
+    "suggestionMode": "aggressive",
+    "preferredLanguages": ["javascript"],
+    "enableComments": true
+  },
+  "customPrompts": [
+    {
+      "name": "interval-helper",
+      "prompt": "Suggest interval-based automation code snippets for mapping and autoupdate features."
+    }
+  ]
+}
